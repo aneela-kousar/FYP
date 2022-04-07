@@ -1,0 +1,173 @@
+<!-- <section class="profile">
+    <div class="containerprofile">
+        <form novalidate (ngSubmit)="save(form)" #form="ngForm">
+            <div class="mb-3">
+                <label class="form-label" for="userId">userId</label>
+                <input type="userId" class="form-control" id="userId" placeholder="userId" required userId [ngModel]="svc.formData.userId"
+                    name="userId" #userIdVar="ngModel" [ngClass]="{'is-invalid': (userIdVar.touched || userIdVar.dirty) && !userIdVar.valid }"
+                />
+               
+            </div>  
+            <div class="mb-3">
+                <label class="form-label" for="userNameId">User Name</label>
+                <input type="text" class="form-control" id="userNameId" placeholder="Name (required)" required userName
+                    [(ngModel)]="svc.formData.userName" name="userName" #userNameVar="ngModel"
+                    [ngClass]="{'is-invalid': (userNameVar.touched || userNameVar.dirty) && !userNameVar.valid }" />
+                <span class="invalid-feedback">
+                    <span *ngIf="userNameVar.errors?.required">
+                        Please enter User Name.
+                    </span>
+                    <span *ngIf="userNameVar.errors?.userName">
+                        Please enter a valid User Name.
+                    </span>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="emailId">Email address</label>
+                <input type="email" class="form-control" id="emailId" placeholder="Email (required)" required email [ngModel]="svc.formData.email"
+                    name="email" #emailVar="ngModel" [ngClass]="{'is-invalid': (emailVar.touched || emailVar.dirty) && !emailVar.valid }"
+                />
+                <span class="invalid-feedback">
+                    <span *ngIf="emailVar.errors?.required">
+                        Please enter email address.
+                    </span>
+                    <span *ngIf="emailVar.errors?.email">
+                        Please enter a valid email address.
+                    </span>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="userType">userType</label>
+                <input type="email" class="form-control" id="userTypeId" placeholder="userType" required userType [ngModel]="svc.formData.userType"
+                    name="userType" #userTypeVar="ngModel" [ngClass]="{'is-invalid': (userTypeVar.touched || userTypeVar.dirty) && !userTypeVar.valid }"
+                />
+               
+            </div>  
+        </form>
+    </div>
+</section> -->
+
+<section class="profile">
+    <div class="profile-body col-lg-5 m-auto shadow-lg">
+
+        <div *ngIf='domain'>
+            <!-- <div class="mb-2 row">
+                    <label class="form-label col-sm-4  mt-2"
+                        for="domainId">Project Displayed By:</label>
+                    <div class="col-sm-8">
+                        {{userName}}
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label class="form-label col-sm-4  mt-2"
+                        for="domainId">Domain</label>
+                    <div class="col-sm-8">
+                        <input class="form-control border-0 bg-transparent"
+                            id="domainNameId"
+                            type="text"
+                            [(ngModel)]="service.formData.domainName"
+                            name="domainName"
+                            disabled/>
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label class="form-label col-sm-4  mt-2"
+                        for="subDomainId">Sub-Domain</label>
+                    <div class="col-sm-8">
+                        <input class="form-control border-0 bg-transparent"
+                            id="subDomainNameId"
+                            type="text"
+                            [(ngModel)]="service.formData.subDomainName"
+                            name="subDomainName"
+                            disabled/>
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label class="form-label col-sm-4  mt-2"
+                        for="descriptionId">Description</label>
+                    <div class="col-sm-8">
+                        <input class="form-control border-0 bg-transparent"
+                            id="descriptionId"
+                            type="text"
+                            [(ngModel)]="service.formData.description"
+                            name="description"
+                            disabled/>
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label class="form-label col-sm-4  mt-2"
+                        for="skillsId">Skills</label>
+                    <div class="col-sm-8">
+                        <input class="form-control border-0 bg-transparent"
+                            id="skillsId"
+                            type="text"
+                            [(ngModel)]="service.formData.skill"
+                            name="skill"
+                            disabled/>
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label class="form-label col-sm-4  mt-2"
+                        for="budgetId">Budget</label>
+                    <div class="col-sm-8">
+                        <input class="form-control border-0 bg-transparent"
+                            id="budgetId"
+                            type="text"
+                            [(ngModel)]="service.formData.budget"
+                            name="budget"
+                            disabled/>
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label class="form-label col-sm-4  mt-2"
+                        for="timeId">Time Slot</label>
+                    <div class="col-sm-8">
+                        <input class="form-control border-0 bg-transparent"
+                            id="timeId"
+                            type="text"
+                            [(ngModel)]="service.formData.timeRequired"
+                            name="timeRequired"
+                            disabled/>
+                    </div>
+                </div> -->
+            <div class="mb-2 row">
+                <label class="form-label col-sm-4  mt-2"
+                    for="userName">Name: </label>
+                <div class="col-sm-8">
+                    {{userName}}
+                </div>
+            </div>
+            <div class="mb-2 row">
+                <label class="form-label col-sm-4  mt-2"
+                    for="emailId">Email: </label>
+                <div class="col-sm-8">
+                    {{email}}
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="form-label col-sm-4  mt-2"
+                    for="domainId">Domain: </label>
+                <div class="col-sm-8">
+                    {{domain.domainName}}
+                </div>
+            </div>
+            <div class='table-responsive'>
+                <table class='table'>
+                    <thead>
+                        <tr>
+                            <th style="width: 40%">Skill</th>
+                            <th style="width: 40%">Skill Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let skil of skillLst">
+                            <td>{{skil.skillName}}</td>
+                            <td>{{skil.skillLevel}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</section>

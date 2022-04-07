@@ -1,0 +1,181 @@
+<section class="projcatalogue">
+    <div>
+        <div class="catalogueContent">
+            <div>
+                <div>
+                    <a class="btn btn-lg btn-dark btnDomain"
+                        (click)="onChangeDomain(1)"
+                        id="bt">
+                        Development and IT
+                    </a>
+                </div>
+                <br>
+                <div *ngIf="show == 1">
+                    <Table class="subDomain">
+                        <tr>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td *ngFor="let d of subDomainLst">
+                                <div>
+                                    <a class="btn btn-lg btn-secondary"
+                                        (click)="projectsList(1, d.subDomainId)">
+                                        {{d.subDomainName}}
+                                    </a>
+                                </div>
+
+                            </td>
+                        </tr>
+                    </Table>
+                </div>
+                <div class='table-responsive'
+                    *ngIf="showProj == 1">
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th style="width: 35%">Project Description</th>
+                                <th style="width: 25%">Skills</th>
+                                <th style="width: 10%">Budget</th>
+                                <th style="width: 10%">Time Applied</th>
+                                <th style="width: 10%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let proj of projectLst">
+                                <td>{{ proj.description }}</td>
+                                <td>{{proj.skill}}</td>
+                                <td>{{ proj.budget | currency:'USD':'symbol':'1.2-2'}}</td>
+                                <td>{{ proj.timeRequired}}</td>
+                                <td>
+                                    <a class="btn btn-sm btn-outline-dark"
+                                        style="width: 100px"
+                                        [routerLink]="['/profile', proj.projectId]">
+                                        View
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br>
+
+            <div>
+                <div>
+                    <a class="btn btn-lg btn-dark btnDomain"
+                        (click)="onChangeDomain(2)"
+                        id="bt">
+                        Writing and Transaction
+                    </a>
+                </div>
+                <br>
+                <div *ngIf="show == 2">
+                    <Table class="subDomain">
+                        <tr>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td *ngFor="let d of subDomainLst">
+                                <div>
+                                    <a class="btn btn-lg btn-secondary"
+                                        (click)="projectsList(2, d.subDomainId)">
+                                        {{d.subDomainName}}
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </Table>
+                </div>
+                <div class='table-responsive'
+                    *ngIf="showProj == 2">
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th style="width: 35%">Project Description</th>
+                                <th style="width: 25%">Skills</th>
+                                <th style="width: 10%">Budget</th>
+                                <th style="width: 10%">Time Applied</th>
+                                <th style="width: 10%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let proj of projectLst">
+                                <td>{{ proj.description }}</td>
+                                <td>{{proj.skill}}</td>
+                                <td>{{ proj.budget | currency:'USD':'symbol':'1.2-2'}}</td>
+                                <td>{{ proj.timeRequired}}</td>
+                                <td>
+                                    <a class="btn btn-sm btn-outline-dark"
+                                        style="width: 100px"
+                                        [routerLink]="['/project', proj.projectId]">
+                                        View
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br>
+
+            <div>
+                <div>
+                    <a class="btn btn-lg btn-dark btnDomain"
+                        (click)="onChangeDomain(3)"
+                        id="bt">
+                        Accounts and Finance
+                    </a>
+                </div>
+                <br>
+                <div *ngIf="show == 3">
+                    <Table class="subDomain">
+                        <tr>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td *ngFor="let d of subDomainLst">
+                                <div>
+                                    <a class="btn btn-lg btn-secondary"
+                                        (click)="projectsList(3, d.subDomainId)">
+                                        {{d.subDomainName}}
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </Table>
+                </div>
+                <div class='table-responsive'
+                    *ngIf="showProj == 3">
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th style="width: 35%">Project Description</th>
+                                <th style="width: 25%">Skills</th>
+                                <th style="width: 10%">Budget</th>
+                                <th style="width: 10%">Time Applied</th>
+                                <th style="width: 10%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let proj of projectLst">
+                                <td>{{ proj.description }}</td>
+                                <td>{{proj.skill}}</td>
+                                <td>{{ proj.budget | currency:'USD':'symbol':'1.2-2'}}</td>
+                                <td>{{ proj.timeRequired}}</td>
+                                <td>
+                                    <a class="btn btn-sm btn-outline-dark"
+                                        style="width: 100px"
+                                        [routerLink]="['/project', proj.projectId]">
+                                        View
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br>
+
+        </div>
+    </div>
+</section>

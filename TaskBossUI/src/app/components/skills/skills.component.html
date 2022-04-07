@@ -1,0 +1,65 @@
+<section class="skill">
+    <div class="skill-body col-lg-5 m-auto shadow-lg">
+        <form novalidate (ngSubmit)="save(form)" #form="ngForm">
+            <div class="form-group row mb-2">
+                <div class="col-md-8">
+                    <div class="form-group row mb-2">
+                        <label class="col-md-2 col-form-label" for="skillNameId">Skill: </label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="skillNameId" type="text" placeholder="Skill"
+                                [(ngModel)]="service.formData.skillName" name="skillName" />
+                        </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" id="skillLevelId" type="radio" value="1"
+                                [(ngModel)]="service.formData.skillLevel" name="skillLevel">Beginner
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" id="skillLevelId" type="radio" value="2"
+                                [(ngModel)]="service.formData.skillLevel" name="skillLevel">Proficient
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" id="skillLevelId" type="radio" value="3"
+                                [(ngModel)]="service.formData.skillLevel" name="skillLevel">Expert
+                        </label>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <div class="col-md-8 text-end">
+                            <button type="submit" class="btn btn-primary">
+                                Add Skill
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- strt -->
+            <div class='table-responsive'>
+                <table class='table'>
+                    <thead>
+                        <tr>
+                            <th style="width: 40%">Skill</th>
+                            <th style="width: 40%">Skill Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let skil of skillLst">
+                            <td>{{ skil.skillName}}</td>
+                            <td>{{skil.skillLevel}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- end -->
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary col-lg-12" (click)="onSubmit()">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</section>

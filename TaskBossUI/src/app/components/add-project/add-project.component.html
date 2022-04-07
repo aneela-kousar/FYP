@@ -1,0 +1,157 @@
+<section class="postjob">
+    <div class="postjob-body col-lg-5 m-auto shadow-lg">
+        <form novalidate (ngSubmit)="save(form)" #form="ngForm">
+            <div class="mb-3 row ">
+                <label class="form-label col-sm-4  mt-2" for="userNameId">User Name</label>
+                <div class="col-sm-6">
+                    <a>{{userName}}</a>
+                </div>
+                <!-- <div class="col-sm-1 invisible">
+                    <input class="form-control" id="userId" type="text" [(ngModel)]="service.formData.userId"
+                        name="userId" />
+                </div>
+                <div class="col-sm-1 invisible">
+                    <input class="form-control" id="userTpe" type="text" [(ngModel)]="service.formData.userType"
+                        name="userType" />
+                </div> -->
+            </div>
+            <div class="mb-2 row">
+                <label class="form-label col-sm-4  mt-2" for="domainId">Domain</label>
+                <div class="col-sm-8">
+                    <select class="form-control" required (ngModelChange)="onChangeDomain($event)"
+                        [(ngModel)]="service.formData.domainId" name="domain" #domainVar="ngModel"
+                        [ngClass]="{'is-invalid': (domainVar.touched || domainVar.dirty) && !domainVar.valid }">
+                        <option [ngValue]="d.domainId" *ngFor="let d of domainLst">
+                            <span>{{d.domainName}}</span>
+                        </option>
+                    </select>
+                    <span class="invalid-feedback">
+                        <span *ngIf="domainVar.errors?.required">
+                            Please select Domain.
+                        </span>
+                        <span *ngIf="domainVar.errors?.domainId">
+                            Please select Domain.
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="form-label col-sm-4  mt-2" for="subDomainId">Sub-Domain</label>
+                <div class="col-sm-8">
+                    <select class="form-control" required [(ngModel)]="service.formData.subDomainId" name="subDomain"
+                        #subDomainVar="ngModel"
+                        [ngClass]="{'is-invalid': (subDomainVar.touched || subDomainVar.dirty) && !subDomainVar.valid }">
+                        <option [ngValue]="d.subDomainId" *ngFor="let d of subDomainLst">
+                            {{d.subDomainName}}
+                        </option>
+                    </select>
+                    <span class="invalid-feedback">
+                        <span *ngIf="subDomainVar.errors?.required">
+                            Please select Sub Domain.
+                        </span>
+                        <span *ngIf="subDomainVar.errors?.subDomainId">
+                            Please select Sub Domain.
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="form-label col-sm-4  mt-2" for="descriptionId">Description</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="descriptionId" placeholder="Description" required
+                        description [(ngModel)]="service.formData.description" name="description"
+                        #descriptionVar="ngModel"
+                        [ngClass]="{'is-invalid': (descriptionVar.touched || descriptionVar.dirty) && !descriptionVar.valid }" />
+                    <span class="invalid-feedback">
+                        <span *ngIf="descriptionVar.errors?.required">
+                            Please write description.
+                        </span>
+                        <span *ngIf="descriptionVar.errors?.email">
+                            Please write some description.
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="form-label col-sm-4  mt-2" for="skillId">Skills</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="skillId" placeholder="Skill" required skill
+                        [(ngModel)]="service.formData.skill" name="skill" #skillVar="ngModel"
+                        [ngClass]="{'is-invalid': (skillVar.touched || skillVar.dirty) && !skillVar.valid }" />
+                    <span class="invalid-feedback">
+                        <span *ngIf="skillVar.errors?.required">
+                            Please write required skills seprated with comma.
+                        </span>
+                        <span *ngIf="skillVar.errors?.skill">
+                            Please write required skills seprated with comma.
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="form-label col-sm-4  mt-2" for="budgetId">Budget</label>
+                <div class="col-sm-7">
+                    <input type="number" class="form-control" id="budgetId" placeholder="00.00" required budget
+                        [(ngModel)]="service.formData.budget" name="budget" #budgetVar="ngModel"
+                        [ngClass]="{'is-invalid': (budgetVar.touched || budgetVar.dirty) && !budgetVar.valid }" />
+                    <span class="invalid-feedback">
+                        <span *ngIf="budgetVar.errors?.required">
+                            Please eneter budget for project.
+                        </span>
+                        <span *ngIf="budgetVar.errors?.budget">
+                            Please eneter valid budget for project.
+                        </span>
+                    </span>
+                </div>
+                <div class="col-sm-1">
+                    <label class="form-label  mt-2" for="budgetId">$</label>
+                </div>
+            </div>
+            <!-- strt -->
+            <div class="mb-3 row">
+                <label class="form-label col-sm-4  mt-2" for="timeId">Time</label>
+                <div class="col-sm-4">
+                    <input type="number" class="form-control" id="timeId" placeholder="00:00" required timeRequired
+                        [(ngModel)]="service.formData.timeRequired" name="timeRequired" #timeVar="ngModel"
+                        [ngClass]="{'is-invalid': (timeVar.touched || timeVar.dirty) && !timeVar.valid }" />
+                    <span class="invalid-feedback">
+                        <span *ngIf="timeVar.errors?.required">
+                            Please enter time for project.
+                        </span>
+                        <span *ngIf="timeVar.errors?.timeRequired">
+                            Please enter valid time for project.
+                        </span>
+                    </span>
+                </div>
+                <div class="col-sm-4">
+                    <!-- <select class="form-control"
+                        required> -->
+                    <!-- [(ngModel)]="service.formData.time" name="time" > -->
+                    <!-- <option selected
+                            value="1">Hrs</option>
+                        <option value="2">Days</option>
+                        <option value="3">Months</option>
+                    </select> -->
+                </div>
+            </div>
+            <!-- end -->
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary col-md-4">Submit</button>
+                <div class="mt-3 alert alert-success" role="alert" *ngIf="isProjectSaved">
+                    Project saved successfully.
+                </div>
+            </div>
+        </form>
+        <div class="col-md-12 text-end">
+            <button class="btn btn-primary" (click)="navigateToHomePage()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                    <path fill-rule="evenodd"
+                        d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>

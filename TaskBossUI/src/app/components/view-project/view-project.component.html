@@ -1,0 +1,179 @@
+<section class="postjob">
+    <div class="postjob-body col-lg-5 m-auto shadow-lg">
+
+        <div *ngIf='project'>
+            <!-- <div class="mb-2 row">
+                    <label class="form-label col-sm-4  mt-2"
+                        for="domainId">Project Displayed By:</label>
+                    <div class="col-sm-8">
+                        {{userName}}
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label class="form-label col-sm-4  mt-2"
+                        for="domainId">Domain</label>
+                    <div class="col-sm-8">
+                        <input class="form-control border-0 bg-transparent"
+                            id="domainNameId"
+                            type="text"
+                            [(ngModel)]="service.formData.domainName"
+                            name="domainName"
+                            disabled/>
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label class="form-label col-sm-4  mt-2"
+                        for="subDomainId">Sub-Domain</label>
+                    <div class="col-sm-8">
+                        <input class="form-control border-0 bg-transparent"
+                            id="subDomainNameId"
+                            type="text"
+                            [(ngModel)]="service.formData.subDomainName"
+                            name="subDomainName"
+                            disabled/>
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label class="form-label col-sm-4  mt-2"
+                        for="descriptionId">Description</label>
+                    <div class="col-sm-8">
+                        <input class="form-control border-0 bg-transparent"
+                            id="descriptionId"
+                            type="text"
+                            [(ngModel)]="service.formData.description"
+                            name="description"
+                            disabled/>
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label class="form-label col-sm-4  mt-2"
+                        for="skillsId">Skills</label>
+                    <div class="col-sm-8">
+                        <input class="form-control border-0 bg-transparent"
+                            id="skillsId"
+                            type="text"
+                            [(ngModel)]="service.formData.skill"
+                            name="skill"
+                            disabled/>
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label class="form-label col-sm-4  mt-2"
+                        for="budgetId">Budget</label>
+                    <div class="col-sm-8">
+                        <input class="form-control border-0 bg-transparent"
+                            id="budgetId"
+                            type="text"
+                            [(ngModel)]="service.formData.budget"
+                            name="budget"
+                            disabled/>
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label class="form-label col-sm-4  mt-2"
+                        for="timeId">Time Slot</label>
+                    <div class="col-sm-8">
+                        <input class="form-control border-0 bg-transparent"
+                            id="timeId"
+                            type="text"
+                            [(ngModel)]="service.formData.timeRequired"
+                            name="timeRequired"
+                            disabled/>
+                    </div>
+                </div> -->
+            <div class="mb-2 row">
+                <label class="form-label col-sm-4  mt-2"
+                    for="domainId">Project Displayed By:</label>
+                <div class="col-sm-8">
+                    {{userName}}
+                </div>
+            </div>
+            <div class="mb-2 row">
+                <label class="form-label col-sm-4  mt-2"
+                    for="domainId">Domain</label>
+                <div class="col-sm-8">
+                    {{project.domainName}}
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="form-label col-sm-4  mt-2"
+                    for="subDomainId">Sub-Domain</label>
+                <div class="col-sm-8">
+                    {{project.subDomainName}}
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="form-label col-sm-4  mt-2"
+                    for="descriptionId">Description</label>
+                <div class="col-sm-8">
+                    {{project.description}}
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="form-label col-sm-4  mt-2"
+                    for="descriptionId">Skills</label>
+                <div class="col-sm-8">
+                    {{project.skill}}
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="form-label col-sm-4  mt-2"
+                    for="descriptionId">Budget</label>
+                <div class="col-sm-8">
+                    {{project.budget}}
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="form-label col-sm-4  mt-2"
+                    for="descriptionId">Time Slot</label>
+                <div class="col-sm-8">
+                    {{project.timeRequired}}
+                </div>
+            </div>
+        </div>
+        <form novalidate
+            (ngSubmit)="save(form)"
+            #form="ngForm">
+            <div class="mb-3 row">
+                <!-- <button type="submit"
+                    class="btn btn-primary col-lg-12">Sign Up</button>
+                <div class="mt-3 alert alert-danger"
+                    role="alert"
+                    *ngIf="isAccountInvalid">
+                    Error in creating account.
+                </div> -->
+                <div class="col-md-12 text-center">
+                    <button type="submit"
+                        [disabled]="isDisabled"
+                        class="btn btn-primary">
+                        Apply
+                    </button>
+                </div>
+            </div>
+            <div class="mt-3 alert alert-success"
+                role="alert"
+                *ngIf="isDisabled">
+                Applied on Project successfully.
+            </div>
+            <div class="col-md-12 text-end">
+                <button class="btn btn-primary"
+                    (click)="navigateToHomePage()">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-house"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"
+                        />
+                        <path fill-rule="evenodd"
+                            d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"
+                        />
+                    </svg>
+                </button>
+            </div>
+
+        </form>
+    </div>
+</section>

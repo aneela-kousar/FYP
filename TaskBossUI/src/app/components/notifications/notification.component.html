@@ -1,0 +1,104 @@
+<section class="notification">
+    <div class="notification-body col-lg-5 m-auto shadow-lg">
+        <form novalidate
+            (ngSubmit)="save(form)"
+            #form="ngForm">
+            <!-- <div class="form-group row mb-2">
+                <div class="col-md-8">
+                    <div class="form-group row mb-2">
+                        <label class="col-md-2 col-form-label"
+                            for="skillNameId">Skill: </label>
+                        <div class="col-md-8">
+                            <input class="form-control"
+                                id="skillNameId"
+                                type="text"
+                                placeholder="Skill"
+                                [(ngModel)]="service.formData.skillName"
+                                name="skillName" />
+                        </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input"
+                                id="skillLevelId"
+                                type="radio"
+                                value="1"
+                                [(ngModel)]="service.formData.skillLevel"
+                                name="skillLevel">Beginner
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input"
+                                id="skillLevelId"
+                                type="radio"
+                                value="2"
+                                [(ngModel)]="service.formData.skillLevel"
+                                name="skillLevel">Proficient
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input"
+                                id="skillLevelId"
+                                type="radio"
+                                value="3"
+                                [(ngModel)]="service.formData.skillLevel"
+                                name="skillLevel">Expert
+                        </label>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <div class="col-md-8 text-end">
+                            <button type="submit"
+                                class="btn btn-primary">
+                                Add Skill
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- strt -->
+            Projects Not Approved
+            <div class='table-responsive'>
+                <table class='table'>
+                    <thead>
+                        <tr>
+                            <th style="width: 40%"></th>
+                            <th style="width: 30%"></th>
+                            <th style="width: 10%"></th>
+                            <th style="width: 20%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let proj of notifLst">
+                            <td>{{ proj.projectDescription}}</td>
+                            <td>
+                                <a class="btn btn-sm btn-outline-dark"
+                                    style="width: 100px"
+                                    [routerLink]="['/applierprofile', proj.applierId]">
+                                    View Profile
+                                </a>
+                            </td>
+                            <td>{{ proj.isChecked }}</td>
+                            <td>
+                                <a class="btn btn-sm btn-outline-dark"
+                                    style="width: 100px"
+                                    (click)="onSubmit(proj.projectId)">
+                                    Approve
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- end -->
+            <!-- <div class="col-md-12 text-center">
+                <button type="submit"
+                    class="btn btn-primary col-lg-12"
+                    (click)="onSubmit()">
+                    Submit
+                </button>
+            </div> -->
+        </form>
+    </div>
+</section>

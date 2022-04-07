@@ -1,0 +1,21 @@
+.home img
+{
+    width: 100%;
+    height: 600px;
+    object-position: center;
+    object-fit: cover;
+}
+.homecontent
+{
+    position: absolute;
+    top: 40%;
+    left: 70%;
+}
+.btn
+{
+    width: 270px;
+}
+
+.subDomain{
+    background-color: white;
+}

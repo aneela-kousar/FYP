@@ -1,0 +1,58 @@
+<section class="home">
+    <img src="../../assets/background.jpg" />
+    <div class="homecontent">
+        <div>
+            <a class="btn btn-lg btn-light" (click)="onChangeDomain(1)" id="bt">
+                Development and IT
+            </a>
+        </div>
+        <br>
+        <div *ngIf="show == 1">
+            <Table class="subDomain">
+                <tr>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td *ngFor="let d of subDomainLst">{{d.subDomainName}}, &nbsp; </td>
+                </tr>
+
+            </Table>
+        </div>
+        <br>
+        <div>
+            <a class="btn btn-lg btn-light" (click)="onChangeDomain(2)" id="bt">
+                Writing and Transaction
+            </a>
+        </div>
+        <br>
+        <div *ngIf="show == 2">
+            <Table class="subDomain">
+                <tr>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td *ngFor="let d of subDomainLst">{{d.subDomainName}}, &nbsp; </td>
+                </tr>
+
+            </Table>
+        </div>
+        <br>
+        <div>
+            <a class="btn btn-lg btn-light" (click)="onChangeDomain(3)" id="bt">
+                Accounts and Finance
+            </a>
+        </div>
+        <br>
+        <div *ngIf="show == 3">
+            <Table class="subDomain">
+                <tr>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td *ngFor="let d of subDomainLst">{{d.subDomainName}}, &nbsp; </td>
+                </tr>
+
+            </Table>
+        </div>
+    </div>
+</section>

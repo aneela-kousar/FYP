@@ -1,0 +1,38 @@
+<section class="signin">
+    <div class="signin-body col-lg-5 m-auto shadow-lg">
+        <form novalidate (ngSubmit)="save(form.value)" #form="ngForm">
+            <div class="mb-3">
+                <label class="form-label" for="emailId">Email address</label>
+                <input type="email" class="form-control" id="emailId" placeholder="Email (required)" required email [ngModel]="service.formData.email"
+                    name="email" #emailVar="ngModel" [ngClass]="{'is-invalid': (emailVar.touched || emailVar.dirty) && !emailVar.valid }"
+                />
+                <span class="invalid-feedback">
+                    <span *ngIf="emailVar.errors?.required">
+                        Please enter email address.
+                    </span>
+                    <span *ngIf="emailVar.errors?.email">
+                        Please enter a valid email address.
+                    </span>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="passwordId">Password</label>
+                <input type="password" class="form-control" id="passwordId" placeholder="Password (required)" required password [ngModel]="service.formData.password"
+                    name="password" #passwordVar="ngModel" [ngClass]="{'is-invalid': (passwordVar.touched || passwordVar.dirty) && !passwordVar.valid }"
+                />
+                <span class="invalid-feedback">
+                    <span *ngIf="passwordVar.errors?.required">
+                        Please enter password.
+                    </span>
+                    <span *ngIf="passwordVar.errors?.password">
+                        Please enter a valid password.
+                    </span>
+                </span>
+            </div>
+            <button type="submit" class="btn btn-primary col-lg-12">Sign In</button>
+            <div class="mt-3 alert alert-danger" role="alert" *ngIf="isCredentialInvalid">
+                Invalid user or password.
+            </div>
+        </form>
+    </div>
+</section>
